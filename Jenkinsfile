@@ -11,7 +11,7 @@ pipeline {
     stage('Build') {
       steps {
         bat 'echo middle'
-        bat(script: 'set mvnhome=%JAVA_HOME%', encoding: 'UTF-8')
+        bat(script: 'set mvnhome=%MVN_HOME%', encoding: 'UTF-8')
       }
     }
     stage('Results') {
