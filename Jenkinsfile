@@ -11,7 +11,8 @@ pipeline {
     stage('Build') {
       steps {
         bat 'echo middle'
-        bat 'mvn -Dmaven.test.failure.ignore clean package'
+        bat(script: 'set mvnhome="hi"', encoding: 'UTF-8')
+        bat 'echo %mvnhome%'
       }
     }
     stage('Results') {
