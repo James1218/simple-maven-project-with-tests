@@ -3,14 +3,14 @@ pipeline {
   stages {
     stage('Preparation') {
       steps {
-        bat 'echo Hello start'
+        bat 'set tool=M3'
         git 'https://github.com/DannySe/simple-maven-project-with-tests.git'
         tool 'M3'
       }
     }
     stage('Build') {
       steps {
-        bat 'echo middle'
+        bat 'echo %tool%'
         bat(script: 'set mvnhome=%MVN_HOME%', encoding: 'UTF-8')
       }
     }
