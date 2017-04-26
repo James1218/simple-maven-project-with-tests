@@ -4,6 +4,7 @@ pipeline {
     stage('Preparation') {
       steps {
         bat 'echo Hello start'
+        tool 'M3'
       }
     }
     stage('Build') {
