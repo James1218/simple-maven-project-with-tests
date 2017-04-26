@@ -5,6 +5,7 @@ pipeline {
       steps {
         bat 'echo Hello start'
         git 'https://github.com/DannySe/simple-maven-project-with-tests.git'
+        tool 'M3'
       }
     }
     stage('Build') {
