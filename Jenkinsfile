@@ -4,7 +4,7 @@ pipeline {
     stage('Preparation') {
       steps {
         git 'https://github.com/James1218/simple-maven-project-with-tests.git'
-        bat 'mvnHome = tool \'M3\''
+        bat '${mvnHome} = tool \'M3\''
       }
     }
   }
