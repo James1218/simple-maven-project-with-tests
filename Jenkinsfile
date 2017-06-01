@@ -3,11 +3,17 @@ pipeline {
   stages {
     stage('Preparation') {
       steps {
-        git 'https://github.com/jglick/simple-maven-project-with-tests.git'
+        parallel(
+          "Preparation": {
+            git 'https://github.com/jglick/simple-maven-project-with-tests.git'
+            
+          },
+          "Define mvnHome": {
+            tool 'M3'
+            
+          }
+        )
       }
     }
-  }
-  environment {
-    mvnHome = 'tool \'M3\''
   }
 }
