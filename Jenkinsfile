@@ -7,5 +7,10 @@ pipeline {
         tool 'M3'
       }
     }
+    stage('Build') {
+      steps {
+        bat 'mvn -Dmaven.test.failure.ignore clean package'
+      }
+    }
   }
 }
