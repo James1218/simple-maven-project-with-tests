@@ -1,15 +1,20 @@
 pipeline {
+  def mvnHome
   agent any
   stages {
     stage('Preparation') {
       steps {
         git 'https://github.com/James1218/simple-maven-project-with-tests.git'
-        tool 'M3'
+        mvnHome = tool 'M3'
       }
     }
-    stage('build') {
+    stage('Build') {
       steps {
-        bat 'mvn -Dmaven.test.failure.ignore clean package'
+        if (isUnix()) {
+          sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package"
+        } else {
+         bat(/"${mvnHome}\bin\mvn" -Dmaven.test.failure.ignore clean package/)
+        }
       }
     }
     stage('Results') {
