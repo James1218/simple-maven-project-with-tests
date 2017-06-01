@@ -9,7 +9,7 @@ pipeline {
     }
     stage('build') {
       steps {
-        bat 'mvn Checks if running on a Unix-like node'
+        bat 'mvn -Dmaven.test.failure.ignore clean package'
       }
     }
   }
