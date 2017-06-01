@@ -3,9 +3,12 @@ pipeline {
   stages {
     stage('Preparation') {
       steps {
-        git 'https://github.com/jglick/simple-maven-project-with-tests.git'
-        tool(name: 'M3', type: 'mvnHome')
+        git 'https://github.com/James1218/simple-maven-project-with-tests.git'
+        sh 'mvnHome = tool \'M3\''
       }
     }
+  }
+  environment {
+    mvnHome = ''
   }
 }
